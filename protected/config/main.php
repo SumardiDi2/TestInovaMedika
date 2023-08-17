@@ -20,14 +20,12 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		*/
 	),
 
 	// application components
@@ -39,7 +37,6 @@ return array(
 		),
 
 		// uncomment the following to enable URLs in path-format
-		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -48,10 +45,15 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		*/
 
 		// database settings are configured in database.php
-		'db'=>require(dirname(__FILE__).'/database.php'),
+		'db'=>array(
+            'connectionString' => 'mysql:host=localhost;port=3306;dbname=test',
+            'emulatePrepare' => true,
+            'username' => 'admin',
+            'password' => '123',
+            'charset' => 'utf8',
+        ),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
