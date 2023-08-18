@@ -1,7 +1,7 @@
 <?php
 
 class DashboardController extends Controller{
-    public function actionHome(){
+    public function actionIndex(){
         echo "Hello World";
     }
 }

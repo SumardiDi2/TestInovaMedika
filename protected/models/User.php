@@ -53,7 +53,7 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'name' => 'Username',
 			'password' => 'Password',
 			'role' => 'Role',
 		);

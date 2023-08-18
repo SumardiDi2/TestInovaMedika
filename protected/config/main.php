@@ -5,12 +5,16 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+Yii::setPathOfAlias('bootstrap',dirname(__FILE__).'/../extensions/bootstrap');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Inova Medika Solusindo',
+	'defaultController' => 'site',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+
+	'theme'=>'bootstrap',
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -21,6 +25,9 @@ return array(
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 		'gii'=>array(
+			'generatorPaths'=>array(
+				'bootstrap.gii',
+			),
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
@@ -30,7 +37,9 @@ return array(
 
 	// application components
 	'components'=>array(
-
+		'bootstrap'=>array(
+			'class'=>'bootstrap.components.Bootstrap',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -39,16 +48,18 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName'=>false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'index'=>'dashboard/index',
 			),
 		),
 
 		// database settings are configured in database.php
 		'db'=>array(
-            'connectionString' => 'mysql:host=localhost;port=3306;dbname=test',
+            'connectionString' => 'mysql:host=localhost;port=3307;dbname=test',
             'emulatePrepare' => true,
             'username' => 'admin',
             'password' => '123',
