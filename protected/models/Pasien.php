@@ -11,7 +11,6 @@
  * @property integer $idWilayah
  * @property string $address
  * @property string $jenisKelamin
- * @property integer $statusPembayaran
  *
  * The followings are the available model relations:
  * @property Obat $idObat0
@@ -38,13 +37,13 @@ class Pasien extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('address, jenisKelamin, statusPembayaran', 'required'),
-			array('idTindakan, idObat, idPegawai, idWilayah, statusPembayaran', 'numerical', 'integerOnly'=>true),
+			array('address, jenisKelamin', 'required'),
+			array('idTindakan, idObat, idPegawai, idWilayah', 'numerical', 'integerOnly'=>true),
 			array('address', 'length', 'max'=>255),
 			array('jenisKelamin', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, idTindakan, idObat, idPegawai, idWilayah, address, jenisKelamin, statusPembayaran', 'safe', 'on'=>'search'),
+			array('id, idTindakan, idObat, idPegawai, idWilayah, address, jenisKelamin', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,13 +70,12 @@ class Pasien extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'idTindakan' => 'Id Tindakan',
-			'idObat' => 'Id Obat',
-			'idPegawai' => 'Id Pegawai',
-			'idWilayah' => 'Id Wilayah',
-			'address' => 'Address',
+			'idTindakan' => 'Tindakan',
+			'idObat' => 'Obat',
+			'idPegawai' => 'Pegawai',
+			'idWilayah' => 'Wilayah',
+			'address' => 'Alamat',
 			'jenisKelamin' => 'Jenis Kelamin',
-			'statusPembayaran' => 'Status Pembayaran',
 		);
 	}
 
@@ -106,7 +104,6 @@ class Pasien extends CActiveRecord
 		$criteria->compare('idWilayah',$this->idWilayah);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('jenisKelamin',$this->jenisKelamin,true);
-		$criteria->compare('statusPembayaran',$this->statusPembayaran);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

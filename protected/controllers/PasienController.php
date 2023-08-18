@@ -1,6 +1,6 @@
 <?php
 
-class ObatController extends Controller
+class PasienController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,14 +62,14 @@ class ObatController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Obat;
+		$model=new Pasien;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Obat']))
+		if(isset($_POST['Pasien']))
 		{
-			$model->attributes=$_POST['Obat'];
+			$model->attributes=$_POST['Pasien'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -91,9 +91,9 @@ class ObatController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Obat']))
+		if(isset($_POST['Pasien']))
 		{
-			$model->attributes=$_POST['Obat'];
+			$model->attributes=$_POST['Pasien'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -122,12 +122,27 @@ class ObatController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$model=new Obat('search');
+		$model=new Pasien('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Obat']))
-			$model->attributes=$_GET['Obat'];
+		if(isset($_GET['Pasien']))
+			$model->attributes=$_GET['Pasien'];
 
 		$this->render('index',array(
+			'model'=>$model,
+		));
+	}
+
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		$model=new Pasien('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Pasien']))
+			$model->attributes=$_GET['Pasien'];
+
+		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}
@@ -136,12 +151,12 @@ class ObatController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Obat the loaded model
+	 * @return Pasien the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Obat::model()->findByPk($id);
+		$model=Pasien::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -149,11 +164,11 @@ class ObatController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Obat $model the model to be validated
+	 * @param Pasien $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='obat-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='pasien-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

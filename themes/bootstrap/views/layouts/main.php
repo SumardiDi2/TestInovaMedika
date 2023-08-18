@@ -27,7 +27,7 @@
 					array('label'=>'Tindakan', 'url'=>array('/tindakan')),
 					array('label'=>'Obat', 'url'=>array('/obat')),
 				]),
-                array('label'=>'Pasien', 'url'=>array('/site/contact')),
+                array('label'=>'Pasien', 'url'=>array('/pasien')),
                 array('label'=>'Transaksi', 'url'=>array('/site/contact')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
