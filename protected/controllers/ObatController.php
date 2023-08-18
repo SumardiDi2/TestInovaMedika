@@ -122,23 +122,12 @@ class ObatController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Obat');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
 		$model=new Obat('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Obat']))
 			$model->attributes=$_GET['Obat'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

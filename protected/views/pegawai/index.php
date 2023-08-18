@@ -1,20 +1,17 @@
-<?php
-/* @var $this PegawaiController */
-/* @var $dataProvider CActiveDataProvider */
+<h1>Pegawai</h1>
 
-$this->breadcrumbs=array(
-	'Pegawais',
-);
+<?php echo CHtml::link('Create',array('pegawai/create'), array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 
-$this->menu=array(
-	array('label'=>'Create Pegawai', 'url'=>array('create')),
-	array('label'=>'Manage Pegawai', 'url'=>array('admin')),
-);
-?>
-
-<h1>Pegawais</h1>
-
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'pegawai-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'id',
+		'name',
+		'address',
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
 )); ?>

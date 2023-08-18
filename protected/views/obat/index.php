@@ -1,20 +1,17 @@
-<?php
-/* @var $this ObatController */
-/* @var $dataProvider CActiveDataProvider */
+<h1>Obat</h1>
 
-$this->breadcrumbs=array(
-	'Obats',
-);
+<?php echo CHtml::link('Create',array('obat/create'), array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 
-$this->menu=array(
-	array('label'=>'Create Obat', 'url'=>array('create')),
-	array('label'=>'Manage Obat', 'url'=>array('admin')),
-);
-?>
-
-<h1>Obats</h1>
-
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'obat-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'id',
+		'name',
+		'production',
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
 )); ?>

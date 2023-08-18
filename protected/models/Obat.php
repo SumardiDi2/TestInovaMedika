@@ -56,8 +56,8 @@ class Obat extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'production' => 'Production',
+			'name' => 'Nama Obat',
+			'production' => 'Produksi',
 		);
 	}
 

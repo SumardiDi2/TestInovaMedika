@@ -20,7 +20,13 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'Master', 'url'=>array('/site/page', 'view'=>'about')),
+                array('label'=>'Master', 'items' => [
+					array('label'=>'Wilayah', 'url'=>array('/wilayah')),
+					array('label'=>'User', 'url'=>array('/user')),
+					array('label'=>'Pegawai', 'url'=>array('/pegawai')),
+					array('label'=>'Tindakan', 'url'=>array('/tindakan')),
+					array('label'=>'Obat', 'url'=>array('/obat')),
+				]),
                 array('label'=>'Pasien', 'url'=>array('/site/contact')),
                 array('label'=>'Transaksi', 'url'=>array('/site/contact')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

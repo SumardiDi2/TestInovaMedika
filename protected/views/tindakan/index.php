@@ -1,20 +1,16 @@
-<?php
-/* @var $this TindakanController */
-/* @var $dataProvider CActiveDataProvider */
+<h1>Tindakan</h1>
 
-$this->breadcrumbs=array(
-	'Tindakans',
-);
+<?php echo CHtml::link('Create',array('tindakan/create'), array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 
-$this->menu=array(
-	array('label'=>'Create Tindakan', 'url'=>array('create')),
-	array('label'=>'Manage Tindakan', 'url'=>array('admin')),
-);
-?>
-
-<h1>Tindakans</h1>
-
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'user-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'id',
+		'namaTindakan',
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
 )); ?>

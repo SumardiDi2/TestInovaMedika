@@ -122,23 +122,12 @@ class WilayahController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Wilayah');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
 		$model=new Wilayah('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Wilayah']))
 			$model->attributes=$_GET['Wilayah'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

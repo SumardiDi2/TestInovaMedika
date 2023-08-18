@@ -122,23 +122,12 @@ class TindakanController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Tindakan');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
 		$model=new Tindakan('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Tindakan']))
 			$model->attributes=$_GET['Tindakan'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

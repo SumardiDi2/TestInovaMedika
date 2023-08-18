@@ -39,6 +39,7 @@
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::link('Back',array('user/index'), array('type' => 'button', 'class' => 'btn btn-light')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

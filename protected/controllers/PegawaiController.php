@@ -122,23 +122,12 @@ class PegawaiController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Pegawai');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
 		$model=new Pegawai('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Pegawai']))
 			$model->attributes=$_GET['Pegawai'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

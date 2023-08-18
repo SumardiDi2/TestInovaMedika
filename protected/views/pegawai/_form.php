@@ -32,8 +32,9 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+		<?php echo CHtml::link('Back',array('pegawai/index'), array('type' => 'button', 'class' => 'btn btn-light')); ?>
+</div>
 
 <?php $this->endWidget(); ?>
 
