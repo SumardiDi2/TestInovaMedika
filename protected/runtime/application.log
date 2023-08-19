@@ -2003,3 +2003,14 @@ REQUEST_URI=/TestInovaMedika/pasien
 in C:\xampp\htdocs\TestInovaMedika\protected\views\pasien\index.php (6)
 in C:\xampp\htdocs\TestInovaMedika\protected\controllers\PasienController.php (126)
 in C:\xampp\htdocs\TestInovaMedika\index.php (13)
+2023/08/19 03:20:51 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "admin". in C:\xampp\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\yii\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\xampp\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\xampp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#3 C:\xampp\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\TestInovaMedika\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/TestInovaMedika/user/admin
+HTTP_REFERER=http://localhost/TestInovaMedika/user/create
+---
