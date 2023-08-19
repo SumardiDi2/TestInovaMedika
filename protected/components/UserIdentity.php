@@ -17,17 +17,51 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
+		$record=User::model()->findByAttributes(array('name'=>$this->username));
+
 		$users=array(
 			// username => password
 			'demo'=>'demo',
 			'admin'=>'admin',
 		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
+
+		if($record===null && $this->username !== "admin" && $this->username !== "demo")
+		{
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+		}
+		else if($this->password !== "admin" && $this->username !== "demo"){
+			if($record!==null){
+				if($record->password!==$this->password){
+					$this->errorCode=self::ERROR_PASSWORD_INVALID;
+				}
+				else{
+					$this->errorCode=self::ERROR_NONE;
+				}
+			}
+			else{
+				$this->errorCode=self::ERROR_PASSWORD_INVALID;
+			}
+		}
+		else{
 			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
+		}
+
+		// if(!isset($users[$this->username]))
+		// 	$this->errorCode=self::ERROR_USERNAME_INVALID;
+		// elseif($users[$this->username]!==$this->password)
+		// 	$this->errorCode=self::ERROR_PASSWORD_INVALID;
+		// else
+		// 	$this->errorCode=self::ERROR_NONE;
+
+        return !$this->errorCode;
+
+		
+		// array_push($users, "user","123");
+
+		// foreach ($record as $value) {
+		// 	array_push($users, "user","123");
+		// }
+		
+		// return !$this->errorCode;
 	}
 }

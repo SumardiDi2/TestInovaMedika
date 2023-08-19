@@ -23,6 +23,7 @@
 			'name'=>'idWilayah0.name',
 			'header'=>'Wilayah',
 		),
+		'name',
 		'address',
 		'jenisKelamin',
 		array(

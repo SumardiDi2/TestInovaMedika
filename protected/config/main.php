@@ -59,7 +59,7 @@ return array(
 
 		// database settings are configured in database.php
 		'db'=>array(
-            'connectionString' => 'mysql:host=localhost;port=3306;dbname=test',
+            'connectionString' => 'mysql:host=localhost;port=3307;dbname=test',
             'emulatePrepare' => true,
             'username' => 'admin',
             'password' => '123',

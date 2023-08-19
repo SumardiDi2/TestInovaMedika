@@ -25,12 +25,19 @@
 	<?php echo CHtml::encode($data->idWilayah); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
+	<?php echo CHtml::encode($data->name); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('address')); ?>:</b>
 	<?php echo CHtml::encode($data->address); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('jenisKelamin')); ?>:</b>
 	<?php echo CHtml::encode($data->jenisKelamin); ?>
 	<br />
+
+	*/ ?>
 
 </div>
