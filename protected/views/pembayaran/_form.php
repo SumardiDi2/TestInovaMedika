@@ -35,7 +35,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tglPembayaran'); ?>
-		<?php echo $form->textField($model,'tglPembayaran'); ?>
+		<?php
+		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			'model' => $model,
+			'attribute' => 'tglPembayaran',
+			'options'=>array(
+				'showAnim'=>'slide',
+				'dateFormat'=>'yy-mm-dd',
+			),
+		));
+		?>
+		<!-- <?php echo $form->textField($model,'tglPembayaran'); ?> -->
 		<?php echo $form->error($model,'tglPembayaran'); ?>
 	</div>
 

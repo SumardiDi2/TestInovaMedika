@@ -19,7 +19,7 @@
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
+                array('label'=>'Home', 'url'=>array('/dashboard')),
                 array('label'=>'Master', 'items' => [
 					array('label'=>'Wilayah', 'url'=>array('/wilayah')),
 					array('label'=>'User', 'url'=>array('/user')),

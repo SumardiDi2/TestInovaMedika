@@ -6,13 +6,14 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 Yii::setPathOfAlias('bootstrap',dirname(__FILE__).'/../extensions/bootstrap');
+Yii::setPathOfAlias('chartjs', dirname(__FILE__).'/../extensions/yii-chartjs');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Inova Medika Solusindo',
-	'defaultController' => 'site',
+	'defaultController' => 'dashboard',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log', 'chartjs'),
 
 	'theme'=>'bootstrap',
 
@@ -44,6 +45,8 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+		
+		'chartjs' => array('class' => 'chartjs.components.ChartJs'),
 
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
@@ -59,7 +62,7 @@ return array(
 
 		// database settings are configured in database.php
 		'db'=>array(
-            'connectionString' => 'mysql:host=localhost;port=3307;dbname=test',
+            'connectionString' => 'mysql:host=localhost;port=3306;dbname=test',
             'emulatePrepare' => true,
             'username' => 'admin',
             'password' => '123',
