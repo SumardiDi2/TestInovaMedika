@@ -1,0 +1,3 @@
+Database digunakan menggunaka phpmyadmin
+
+Untuk login selain menggunakan admin/admin atau demo/demo bisa menggunakan user di database dengan tabel user
